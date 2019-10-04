@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div {
+			width: 150px;
+			height: 150px;
+			background-color: lightgreen;
+			margin: 5px;
+			display: inline-block;
+			text-align: center;
+			vertical-align: top;
+		}
+		label.cabecera {
+			font-weight: bold;
+			font-size: 1.5em;
+			margin:10px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			//activar un listener sobre todo el documento
+			document.getElementById('div1').addEventListener('click', function () {onclickf(this)});
+			document.getElementById('div1').addEventListener('dblclick', function () {ondblclickf(this)});
+			document.getElementById('div2').addEventListener('mouseover', function () {onmouseoverf(this)});
+			document.getElementById('div2').addEventListener('mouseout', function () {onmouseoutf(this)});
+			document.getElementById('div3').addEventListener('mousedown', function () {onmousedownf(this)});
+			document.getElementById('div3').addEventListener('mouseup', function () {onmouseupf(this)});
+			document.getElementById('div4').addEventListener('mouseenter', function () {onmouseenterf(this)});
+			document.getElementById('div4').addEventListener('mouseleave', function () {onmouseleavef(this)});
+			document.getElementById('div5').addEventListener('mousemove', function () {onmousemovef(this)});
+			document.getElementById('div6').addEventListener('contextmenu', function () {oncontextmenuf(this)});
+			document.getElementById('input3').addEventListener('keydown', function () {onkeydownf(this)});
+			document.getElementById('input3').addEventListener('keyup', function () {onkeyupf(this)});
+			document.getElementById('input4').addEventListener('keypress', function () {onkeypressf(this)});
+			document.getElementById('input5').addEventListener('blur', function () {onblurf(this)});
+			document.getElementById('input5').addEventListener('focus', function () {onfocusf(this)});
+			document.getElementById('input6').addEventListener('select', function () {onselectf(this)});
+			document.getElementById('combo').addEventListener('change', function () {onchangef(this)});
+			document.getElementById('formulario2').addEventListener('submit', function () {onsubmitf(this)});
+			document.getElementById('formulario2').addEventListener('reset', function () {onresetf(this)});
+		}		
+		// oncontentmenu='return false'
+		function saludar() {
+			var form = document.getElementById('formulario');
+			form.style.backgroundColor='black';
+		}
+		function saludar2() {
+			var form = document.getElementById('formulario');
+			form.style.backgroundColor='green';
+		}
+		function cambiaColor() {
+			var div1 = document.getElementById('div1');
+			div1.style.backgroundColor='blue';
+			var div2 = document.getElementById('div2');
+			div2.style.backgroundColor='green';
+			var div3 = document.getElementById('div3');
+			div3.style.backgroundColor='black';
+		}
+
+		function calcularColor () {
+			var num1 = parseInt(Math.random() * (256 - 0) + 1);
+			var num2 = parseInt(Math.random() * (256 - 0) + 1);
+			var num3 = parseInt(Math.random() * (256 - 0) + 1);
+			var num4 = Math.random();
+			num4 = num4.toFixed(1);
+			var color = 'rgba(' + num1 + ',' + num2 + ',' + num3 + ',' + num4 + ')';
+			return color;
+		}
+
+		function onclickf(valor) {
+			//var div1 = document.getElementById('div1');
+			valor.style.backgroundColor = calcularColor();
+			valor.style.borderColor = 'rgba(256,256,256,0.3)';
+			valor.style.borderWidth = '0px';
+		}
+
+		function ondblclickf(valor) {
+			//var div1 = document.getElementById('div1');
+			//div1.style.backgroundColor = 'rgba(0,0,0,1)';
+			//div1.style.borderColor = 'red';
+			valor.style.border = 'solid';
+			valor.style.borderWidth = '5px';
+			valor.style.borderColor = 'red';
+		}
+
+		function onmouseoverf(valor) {
+			var div2 = document.getElementById('div2');
+			div2.style.backgroundColor = calcularColor();
+		}
+		function onmouseoutf(valor) {
+			var div2 = document.getElementById('div2');
+			div2.style.backgroundColor = calcularColor();
+		}
+		function onmousedownf(valor) {
+			var div3 = document.getElementById('div3');
+			div3.style.backgroundColor = calcularColor();
+		}
+		function onmouseupf(valor) {
+			var div3 = document.getElementById('div3');
+			div3.style.backgroundColor = calcularColor();
+			
+		}
+		function onmouseenterf(valor) {
+			var div4 = document.getElementById('div4');
+			div4.style.backgroundColor = calcularColor();
+			//alert('onmouseenterf')
+		}
+		function onmouseleavef(valor) {
+			var div4 = document.getElementById('div4');
+			div4.style.backgroundColor = calcularColor();
+			//alert('onmouseleavef')
+		}
+		function onmousemovef(valor) {
+			var div5 = document.getElementById('div5');
+			//div1.style.backgroundColor = 'rgba(218,191,255,0.7)';
+			div5.style.backgroundColor = calcularColor();
+			//document.getElementById('div5').value = num1;
+			//alert('onmousemovef')
+		}
+		function oncontextmenuf(valor) {
+			//alert('oncontextmenuf')
+			return false
+ 
+		}
+		function onkeydownf(valor) {
+			var teclado = document.getElementById('input3');
+			teclado.style.backgroundColor = calcularColor();
+			document.getElementById('input3').value = 'onkeydown';
+			
+		}
+		function onkeyupf(valor) {
+			var teclado = document.getElementById('input3');
+			teclado.style.backgroundColor = calcularColor();
+			document.getElementById('input3').value = 'onkeyup';
+			
+		}
+		function onkeypressf(valor) {
+			var teclado = document.getElementById('input4');
+			teclado.style.backgroundColor = calcularColor();
+			document.getElementById('input4').value = 'onkeypress';
+			teclado.style.border = 'solid';
+			teclado.style.borderWidth = '5px';
+			teclado.style.borderColor = 'red';
+			onmousemovef(valor);
+		}
+		function onblurf(valor) {
+			var teclado = document.getElementById('input5');
+			teclado.style.backgroundColor = calcularColor();
+			document.getElementById('input5').value = 'onblur';
+		}
+		function onfocusf(valor) {
+			var teclado = document.getElementById('input5');
+			teclado.style.backgroundColor = calcularColor();
+			document.getElementById('input5').value = 'onfocus';
+		}
+		function onselectf(valor) {
+			var teclado = document.getElementById('input6');
+			teclado.style.backgroundColor = calcularColor();
+			document.getElementById('input6').value = 'onselect';
+
+		}
+		function onchangef(valor) {
+			var seleccion = document.getElementById('combo');
+			document.getElementById('input6').value = document.getElementById('combo').value;
+		}
+		function onsubmitf(valor) {
+			//alert ('submit')
+			document.getElementsByTagName('body')[0].style.backgroundColor='grey';
+		}
+		function onresetf(valor) {
+			//alert ('reset')
+			document.getElementsByTagName('body')[0].style.backgroundColor='white';
+		}
+	</script>
+</head>
+<body oncontextmenu="return false">
+	<form name="formulario" id="formulario">
+		<input type="text" name="" id="input1" onblur="saludar()">
+		<input type="text" name="" id="input2" onfocus="saludar2()">
+	</form>
+	<br><br>
+	<label class="cabecera">Ratón</label> <br>
+	<div id="div1">onclick & ondblclick</div>
+	<div id="div2">onmouseover & onmouseout</div>
+	<div id="div3">onmousedown & onmouseup</div>
+	<div id="div4">onmouseenter & onmouseleave</div>
+	<div id="div5">onmousemove</div>
+	<div id="div6">oncontextmenu</div><br><br>
+	
+	<form name="formulario" id="teclado">
+		<label class="cabecera">Teclado</label> <br>
+		<input type="text" name="" id="input3">
+		<label>onkeydown & onkeyup</label>
+		<br><br>
+		<input type="text" name="" id="input4">
+		<label>onkeypress</label><br>
+	</form>
+	<form name="formulario2" id="formulario2">
+		<br>
+		<label class="cabecera">Formulario</label> <br>
+		<input type="text" name="" id="input5">
+		<label>onfocus & onblur</label><br><br>
+		<input type="text" name="" id="input6">
+		<label>onselect</label><br><br>
+		<label class="cabecera">lista desplegables</label><br>
+  		<select id="combo">
+  			<option>opcion 1</option>
+  			<option>opcion 2</option>
+  			<option>opcion 3</option>
+  			<option>opcion 4</option>
+  		</select>
+  		<br><br>
+  		<input type="submit" id="submit" name="submit" value="submit"><label>onsubmit</label>
+  		<br><br>
+  		<input type="reset" id="reset" name="reset" value="reset"><label>onreset</label>
+	</form>
+	<br><br>
+</body>
+</html>
